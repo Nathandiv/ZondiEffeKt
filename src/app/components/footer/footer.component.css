@@ -1,0 +1,40 @@
+/* Footer animations */
+.footer-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(to right, #dc2626, #b91c1c);
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
+/* Social icons hover effects */
+.social-icon {
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+/* Background gradient */
+footer {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+}
+
+/* Contact info icons */
+.contact-icon {
+  flex-shrink: 0;
+}
