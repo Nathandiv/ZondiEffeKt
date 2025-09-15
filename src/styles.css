@@ -64,7 +64,7 @@
      /* Mobile responsive improvements */
      @media (max-width: 768px) {
        .btn-primary, .btn-secondary, .btn-dark {
-         @apply px-4 py-2 text-sm;
+         @apply px-4 py-2 text-base min-w-[100px];
        }
        
        .modal-content {
@@ -82,7 +82,8 @@
      
      @media (max-width: 640px) {
        .video-container {
-         height: 180px;
+         height: 50vw;
+         max-height: 180px;
        }
        
        .modal-header {
@@ -94,7 +95,7 @@
        }
        
        .modal-content {
-         @apply mx-1;
+         @apply mx-2 my-2 min-w-[90%];
        }
      }
      
