@@ -1,0 +1,31 @@
+.nav-link {
+  @apply text-dark-700 hover:text-primary-600 font-medium transition-colors duration-200 relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #dc2626, #b91c1c);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.text-primary-600::after {
+  width: 100%;
+}
+
+.mobile-nav-link {
+  @apply block px-3 py-2 rounded-md text-base font-medium text-dark-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200;
+}
+
+header:not(.bg-white) .nav-link {
+  @apply text-white hover:text-primary-300;
+}
+
+header:not(.bg-white) .nav-link.text-primary-600 {
+  @apply text-primary-300;
+}
