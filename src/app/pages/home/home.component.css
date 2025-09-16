@@ -1,0 +1,72 @@
+.aspect-w-16 {
+  position: relative;
+  width: 100%;
+}
+
+.aspect-h-12 {
+  padding-bottom: 75%;
+}
+
+.aspect-w-16 img,
+.aspect-w-16 iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-container .bg-black {
+  transition: opacity 0.3s;
+}
+
+.video-container .bg-black:hover {
+  opacity: 0.7;
+}
+
+/* Hero section enhancements */
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(220,38,38,0.2) 100%);
+}
+
+/* Service cards hover effects */
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Featured work hover effects */
+.work-card {
+  overflow: hidden;
+}
+
+.work-card:hover .work-image {
+  transform: scale(1.1);
+}
+
+.work-image {
+  transition: transform 0.7s ease;
+}
+
+/* Testimonial section styling */
+blockquote {
+  position: relative;
+}
+
+blockquote::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(to right, #dc2626, #b91c1c);
+}
+
+@media (max-width: 640px) {
+  .aspect-h-12 {
+    padding-bottom: 100%; /* More square aspect on mobile */
+  }
+}

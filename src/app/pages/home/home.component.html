@@ -1,2 +1,519 @@
-<!-- <app-header></app-header>
-<app-footer></app-footer> -->
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-transparent"></div>
+  </div>
+  
+  <!-- Background Video/Image -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="https://images.pexels.com/photos/1264210/pexels-photo-1264210.jpeg?auto=compress&cs=tinysrgb&w=1200" 
+      alt="Hero Background" 
+      class="w-full h-full object-cover opacity-30">
+  </div>
+  
+  <div class="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
+    <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 animate-slide-up">
+      Creating Visual Stories,
+      <span class="text-gradient block">Crafting Stories</span>
+      <span class="text-gradient block">For Artists</span>
+    </h1>
+    <p class="text-xl sm:text-2xl mb-8 max-w-3xl mx-auto animate-slide-up animate-delayed">
+      Premium music video production and photography services for well-known artists and businesses across South Africa
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up animate-delayed-2">
+      <a routerLink="/portfolio" class="btn-primary">
+        View Portfolio
+      </a>
+      <button (click)="openQuoteModal()" class="btn-secondary">
+        Get Quote
+      </button>
+    </div>
+  </div>
+  
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce-light">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- Introduction Section -->
+<section class="section-padding bg-white">
+  <div class="container-max">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-dark-900">
+        Your Sound, <span class="text-gradient">Visually Amplified</span>
+      </h2>
+      <p class="text-lg text-dark-600 mb-8 leading-relaxed">
+        Welcome to ZondiEffekts, where music meets visual artistry. We specialize in creating stunning music videos and photography for well-known artists, bringing their creative vision to life with cinematic excellence.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
+        <div class="text-center">
+          <div class="text-4xl font-bold text-primary-600 mb-2">200+</div>
+          <div class="text-dark-600">Music Videos</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-primary-600 mb-2">50+</div>
+          <div class="text-dark-600">Well-Known Artists</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-primary-600 mb-2">5+</div>
+          <div class="text-dark-600">Years Experience</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-primary-600 mb-2">1M+</div>
+          <div class="text-dark-600">Video Views</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Work Section -->
+<section class="section-padding bg-dark-50">
+  <div class="container-max">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-dark-900">
+        Featured <span class="text-gradient">Work</span>
+      </h2>
+      <p class="text-lg text-dark-600 max-w-2xl mx-auto">
+        Explore our curated selection of photography and videography projects that showcase our artistic vision and technical expertise.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+      <div *ngFor="let work of featuredWorks; let i = index" 
+           class="relative group overflow-hidden rounded-xl shadow-lg card-hover"
+           [class.animate-slide-up]="true"
+           [class.animate-delayed]="i % 2 === 1"
+           [class.animate-delayed-2]="i % 4 === 2"
+           [class.animate-delayed-3]="i % 4 === 3">
+        
+        <!-- Photography Items -->
+        <div class="video-container aspect-w-16 aspect-h-12" *ngIf="work.category === 'Photography'">
+          <img 
+            [src]="work.image" 
+            [alt]="work.title"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+        </div>
+        
+        <!-- Video Items -->
+        <div class="video-container aspect-w-16 aspect-h-12 relative" *ngIf="work.category === 'Music Video' || work.category === 'Content Creation'">
+          <iframe 
+            [src]="work.safeVideoUrl" 
+            class="w-full h-full"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            (click)="onVideoClick(work)"
+            (loadeddata)="onVideoLoaded($event, work)">
+          </iframe>
+          <!-- <div *ngIf="!work.isPlaying" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 cursor-pointer" (click)="onVideoClick(work)">
+            <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div> -->
+        </div>
+        
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none">
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <span class="inline-block px-3 py-1 bg-primary-600 text-xs font-medium rounded-full mb-2">
+              {{ work.category }}
+            </span>
+            <h3 class="text-xl font-bold mb-2">{{ work.title }}</h3>
+            <p class="text-sm opacity-90">{{ work.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-12">
+      <a routerLink="/portfolio" class="btn-primary">
+        View Full Portfolio
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Services Overview Section -->
+<section class="section-padding bg-white">
+  <div class="container-max">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-dark-900">
+        Our <span class="text-gradient">Services</span>
+      </h2>
+      <p class="text-lg text-dark-600 max-w-2xl mx-auto">
+        From intimate portrait sessions to grand wedding celebrations, we offer comprehensive photography and videography services tailored to your unique needs.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div *ngFor="let service of services; let i = index" 
+           class="text-center group"
+           [class.animate-scale-in]="true"
+           [class.animate-delayed]="i % 2 === 1"
+           [class.animate-delayed-2]="i % 4 === 2"
+           [class.animate-delayed-3]="i % 4 === 3">
+        <div class="w-20 h-20 mx-auto mb-6 bg-primary-100 rounded-full flex items-center justify-center text-4xl group-hover:bg-primary-600 group-hover:text-white transition-all duration-300">
+          {{ service.icon }}
+        </div>
+        <h3 class="text-xl font-bold mb-4 text-dark-900">{{ service.title }}</h3>
+        <p class="text-dark-600 leading-relaxed">{{ service.description }}</p>
+      </div>
+    </div>
+    
+    <div class="text-center mt-12">
+      <a routerLink="/services" class="btn-secondary">
+        View All Services
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Client Testimonial Section -->
+<section class="section-padding bg-dark-900 text-white">
+  <div class="container-max">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="text-primary-400 text-6xl mb-6">"</div>
+      <blockquote class="text-xl sm:text-2xl italic mb-8 leading-relaxed">
+        ZondiEffekts brought our music video vision to life beyond our wildest dreams. The cinematic quality and creative direction helped our single reach over 2 million views. Absolutely incredible work!
+      </blockquote>
+      <div class="flex items-center justify-center space-x-4">
+        <img 
+          src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100" 
+          alt="Client"
+          class="w-16 h-16 rounded-full object-cover">
+        <div class="text-left">
+          <div class="font-bold text-lg">Sipho "S-Wave" Mthembu</div>
+          <div class="text-primary-400">Platinum-Selling Artist</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="section-padding bg-primary-600 text-white">
+  <div class="container-max">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+        Ready to Create Something Beautiful?
+      </h2>
+      <p class="text-xl mb-8 opacity-90">
+        Let's discuss your vision and bring it to life through our professional photography and videography services.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button (click)="openBookingModal()" class="btn-dark">
+          Get Started Today
+        </button>
+        <a routerLink="/portfolio" class="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-primary-600">
+          View Our Work
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quote Modal -->
+<div *ngIf="isQuoteModalOpen" class="modal-overlay" (click)="closeQuoteModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2 class="text-2xl font-bold text-dark-900">Get Your Free Quote</h2>
+      <button (click)="closeQuoteModal()" class="text-dark-500 hover:text-dark-700">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <form action="https://api.web3forms.com/submit" method="POST" class="modal-body space-y-6" enctype="multipart/form-data">
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+      <input type="hidden" name="subject" value="New Quote Request - ZondiEffekts">
+      <input type="hidden" name="from_name" value="ZondiEffekts Website">
+      
+      <!-- Client Contact Details -->
+      <div>
+        <h3 class="text-lg font-bold mb-4 text-dark-900">Client Contact Details</h3>
+        <div class="form-grid">
+          <div>
+            <label class="block text-sm font-medium text-dark-700 mb-2">Full Name *</label>
+            <input type="text" name="full_name" required class="form-field">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-dark-700 mb-2">Email Address *</label>
+            <input type="email" name="email" required class="form-field">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-dark-700 mb-2">Phone Number *</label>
+            <input type="tel" name="phone" required class="form-field" placeholder="+27 XX XXX XXXX">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-dark-700 mb-2">Company/Artist Name</label>
+            <input type="text" name="company" class="form-field">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Event/Project Details -->
+      <div>
+        <h3 class="text-lg font-bold mb-4 text-dark-900">Event / Project Details</h3>
+        <div class="form-grid">
+          <div>
+            <label class="block text-sm font-medium text-dark-700 mb-2">Service Type *</label>
+            <select name="service_type" required class="form-field">
+              <option value="">Select Service</option>
+              <option value="Music Video Production">Music Video Production</option>
+              <option value="Artist Photography">Artist Photography</option>
+              <option value="Content Creation">Content Creation</option>
+              <option value="Business Photography">Business Photography</option>
+              <option value="Event Coverage">Event Coverage</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-dark-700 mb-2">Project Date</label>
+            <input type="date" name="project_date" class="form-field">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-dark-700 mb-2">Location</label>
+            <input type="text" name="location" placeholder="Cape Town, Johannesburg, etc." class="form-field">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-dark-700 mb-2">Duration</label>
+            <select name="duration" class="form-field">
+              <option value="">Select Duration</option>
+              <option value="Half Day (4 hours)">Half Day (4 hours)</option>
+              <option value="Full Day (8 hours)">Full Day (8 hours)</option>
+              <option value="2 Days">2 Days</option>
+              <option value="3+ Days">3+ Days</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Specific Requirements -->
+      <div>
+        <h3 class="text-lg font-bold mb-4 text-dark-900">Specific Requirements</h3>
+        <textarea name="requirements" rows="4" placeholder="Describe your vision, style preferences, specific shots needed, equipment requirements, etc." class="form-field resize-none"></textarea>
+      </div>
+      
+      <!-- Budget Range -->
+      <div>
+        <h3 class="text-lg font-bold mb-4 text-dark-900">Budget Range</h3>
+        <select name="budget" class="form-field">
+          <option value="">Select Budget Range</option>
+          <option value="Under R15,000">Under R15,000</option>
+          <option value="R15,000 - R35,000">R15,000 - R35,000</option>
+          <option value="R35,000 - R75,000">R35,000 - R75,000</option>
+          <option value="R75,000 - R150,000">R75,000 - R150,000</option>
+          <option value="R150,000+">R150,000+</option>
+        </select>
+      </div>
+      
+      <!-- File Upload -->
+      <div>
+        <h3 class="text-lg font-bold mb-4 text-dark-900">File Upload (Optional)</h3>
+        <input type="file" name="attachment" multiple accept="image/*,video/*,.pdf,.doc,.docx" class="form-field">
+        <p class="text-sm text-dark-600 mt-2">Upload reference images, mood boards, or project briefs (Max 10MB per file)</p>
+      </div>
+      
+      <!-- Consent & Agreement -->
+      <div>
+        <div class="flex items-start space-x-3">
+          <input type="checkbox" name="consent" required class="mt-1 w-5 h-5 text-primary-600 border-dark-300 rounded focus:ring-primary-600">
+          <div class="text-sm">
+            <label class="text-dark-700">
+              I agree to the 
+              <button type="button" (click)="openConsentModal()" class="text-primary-600 hover:text-primary-700 underline">
+                Terms & Conditions
+              </button>
+              and consent to being contacted regarding this quote request. *
+            </label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center pt-4">
+        <button type="submit" class="btn-primary text-lg px-12 py-4">
+          Submit Quote Request
+        </button>
+        <p class="text-sm text-dark-500 mt-4">We'll respond within 24 hours with your personalized quote</p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Booking Modal -->
+<div *ngIf="isBookingModalOpen" class="modal-overlay" (click)="closeBookingModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2 class="text-2xl font-bold text-dark-900">Book Your Project</h2>
+      <button (click)="closeBookingModal()" class="text-dark-500 hover:text-dark-700">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <form action="https://api.web3forms.com/submit" method="POST" class="modal-body space-y-6" enctype="multipart/form-data">
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+      <input type="hidden" name="subject" value="New Project Booking - ZondiEffekts">
+      <input type="hidden" name="from_name" value="ZondiEffekts Website">
+      
+      <!-- Client Contact Details -->
+      <div>
+        <h3 class="text-lg font-bold mb-4 text-dark-900">Client Contact Details</h3>
+        <div class="form-grid">
+          <div>
+            <label class="block text-sm font-medium text-dark-700 mb-2">Full Name *</label>
+            <input type="text" name="full_name" required class="form-field">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-dark-700 mb-2">Email Address *</label>
+            <input type="email" name="email" required class="form-field">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-dark-700 mb-2">Phone Number *</label>
+            <input type="tel" name="phone" required class="form-field" placeholder="+27 XX XXX XXXX">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-dark-700 mb-2">Company/Artist Name</label>
+            <input type="text" name="company" class="form-field">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Event/Project Details -->
+      <div>
+        <h3 class="text-lg font-bold mb-4 text-dark-900">Event / Project Details</h3>
+        <div class="form-grid">
+          <div>
+            <label class="block text-sm font-medium text-dark-700 mb-2">Service Type *</label>
+            <select name="service_type" required class="form-field">
+              <option value="">Select Service</option>
+              <option value="Music Video Production">Music Video Production</option>
+              <option value="Artist Photography">Artist Photography</option>
+              <option value="Content Creation">Content Creation</option>
+              <option value="Business Photography">Business Photography</option>
+              <option value="Event Coverage">Event Coverage</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-dark-700 mb-2">Project Date</label>
+            <input type="date" name="project_date" class="form-field">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-dark-700 mb-2">Location</label>
+            <input type="text" name="location" placeholder="Cape Town, Johannesburg, etc." class="form-field">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-dark-700 mb-2">Duration</label>
+            <select name="duration" class="form-field">
+              <option value="">Select Duration</option>
+              <option value="Half Day (4 hours)">Half Day (4 hours)</option>
+              <option value="Full Day (8 hours)">Full Day (8 hours)</option>
+              <option value="2 Days">2 Days</option>
+              <option value="3+ Days">3+ Days</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Specific Requirements -->
+      <div>
+        <h3 class="text-lg font-bold mb-4 text-dark-900">Specific Requirements</h3>
+        <textarea name="requirements" rows="4" placeholder="Describe your vision, style preferences, specific shots needed, equipment requirements, etc." class="form-field resize-none"></textarea>
+      </div>
+      
+      <!-- Budget Range -->
+      <div>
+        <h3 class="text-lg font-bold mb-4 text-dark-900">Budget Range</h3>
+        <select name="budget" class="form-field">
+          <option value="">Select Budget Range</option>
+          <option value="Under R15,000">Under R15,000</option>
+          <option value="R15,000 - R35,000">R15,000 - R35,000</option>
+          <option value="R35,000 - R75,000">R35,000 - R75,000</option>
+          <option value="R75,000 - R150,000">R75,000 - R150,000</option>
+          <option value="R150,000+">R150,000+</option>
+        </select>
+      </div>
+      
+      <!-- File Upload -->
+      <div>
+        <h3 class="text-lg font-bold mb-4 text-dark-900">File Upload (Optional)</h3>
+        <input type="file" name="attachment" multiple accept="image/*,video/*,.pdf,.doc,.docx" class="form-field">
+        <p class="text-sm text-dark-600 mt-2">Upload reference images, mood boards, or project briefs (Max 10MB per file)</p>
+      </div>
+      
+      <!-- Consent & Agreement -->
+      <div>
+        <div class="flex items-start space-x-3">
+          <input type="checkbox" name="consent" required class="mt-1 w-5 h-5 text-primary-600 border-dark-300 rounded focus:ring-primary-600">
+          <div class="text-sm">
+            <label class="text-dark-700">
+              I agree to the 
+              <button type="button" (click)="openConsentModal()" class="text-primary-600 hover:text-primary-700 underline">
+                Terms & Conditions
+              </button>
+              and consent to being contacted regarding this booking request. *
+            </label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center pt-4">
+        <button type="submit" class="btn-primary text-lg px-12 py-4">
+          Submit Booking Request
+        </button>
+        <p class="text-sm text-dark-500 mt-4">We'll respond within 24 hours with your booking confirmation</p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Consent Modal -->
+<div *ngIf="isConsentModalOpen" class="modal-overlay" style="z-index: 60;" (click)="closeConsentModal()">
+  <div class="modal-content max-w-2xl" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2 class="text-xl font-bold text-dark-900">Terms & Conditions</h2>
+      <button (click)="closeConsentModal()" class="text-dark-500 hover:text-dark-700">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="space-y-4 text-sm text-dark-700">
+        <h3 class="font-bold text-base">Service Agreement Terms</h3>
+        <p>By submitting this request, you acknowledge and agree to the following:</p>
+        
+        <h4 class="font-semibold">1. Booking Process</h4>
+        <p>This form initiates the booking process. Final confirmation requires a signed contract and deposit payment.</p>
+        
+        <h4 class="font-semibold">2. Payment Terms</h4>
+        <p>A 50% deposit is required to secure your booking, with the balance due on completion of services.</p>
+        
+        <h4 class="font-semibold">3. Cancellation Policy</h4>
+        <p>Cancellations more than 30 days before the project receive a full refund minus 10% processing fee. Cancellations within 30 days are non-refundable.</p>
+        
+        <h4 class="font-semibold">4. Copyright & Usage</h4>
+        <p>ZondiEffekts retains copyright to all images and videos. Clients receive usage rights for personal or agreed commercial use.</p>
+        
+        <h4 class="font-semibold">5. Communication</h4>
+        <p>You consent to being contacted via email, phone, or WhatsApp regarding your booking and project details.</p>
+        
+        <h4 class="font-semibold">6. Governing Law</h4>
+        <p>These terms are governed by the laws of South Africa and any disputes will be resolved in South African courts.</p>
+        
+        <div class="mt-6 text-center">
+          <button (click)="closeConsentModal()" class="btn-primary">
+            I Understand
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
