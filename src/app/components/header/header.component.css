@@ -29,3 +29,7 @@ header:not(.bg-white) .nav-link {
 header:not(.bg-white) .nav-link.text-primary-600 {
   @apply text-primary-300;
 }
+
+header.bg-white .nav-link {
+  @apply text-dark-700 hover:text-primary-600;
+}

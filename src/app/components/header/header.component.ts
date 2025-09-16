@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -13,9 +13,13 @@ export class HeaderComponent implements OnInit {
   isScrolled = false;
 
   ngOnInit() {
-    window.addEventListener('scroll', () => {
-      this.isScrolled = window.scrollY > 50;
-    });
+    this.onWindowScroll();
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+    this.isScrolled = scrollPosition > 50;
   }
 
   toggleMenu() {
