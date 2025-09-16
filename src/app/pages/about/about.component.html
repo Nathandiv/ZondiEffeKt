@@ -1,4 +1,203 @@
-<!-- <app-header></app-header> -->
-<p>about works!</p>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-transparent"></div>
+  </div>
+  
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZD13eq4QSxsYq9_eykzx3bGGZMMe97qbfg5fQflF9iPTDLjKp1rD9KodhVcQBzezLrE0&s" 
+      alt="Creative Professional Background" 
+      class="w-full h-full object-cover opacity-30">
+  </div>
+  
+  <div class="container-max">
+    <div class="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+          Meet the <span class="text-gradient">Creative</span> Behind the Lens
+        </h1>
+        <p class="text-xl mb-8 opacity-90 leading-relaxed">
+          I'm a passionate photographer and videographer with over 5 years of experience capturing life's most precious moments. My journey began with a simple love for storytelling through visual art.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#journey" class="btn-primary">
+            My Story
+          </a>
+          <a routerLink="/contact" class="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-dark-900">
+            Let's Connect
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce-light">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+</section>
 
-<!-- <app-footer></app-footer> -->
+<!-- Story Section -->
+<section id="journey" class="section-padding bg-white">
+  <div class="container-max">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-dark-900">
+          My <span class="text-gradient">Journey</span>
+        </h2>
+        <p class="text-lg text-dark-600">
+          Every great story has a beginning. Here's mine.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="animate-slide-up">
+          <h3 class="text-2xl font-bold mb-6 text-dark-900">From Music Lover to Visual Creator</h3>
+          <p class="text-dark-600 mb-6 leading-relaxed">
+            My passion for visual storytelling began when I started filming local hip-hop artists in Cape Town. The moment I realized how powerful visuals could amplify music, I knew I had found my calling in the creative industry.
+          </p>
+          <p class="text-dark-600 mb-6 leading-relaxed">
+            What started as filming friends quickly evolved into working with platinum-selling artists and major record labels. I discovered my ability to translate musical energy into compelling visual narratives.
+          </p>
+          <p class="text-dark-600 leading-relaxed">
+            Today, I specialize in music video production, artist photography, and content creation for the entertainment industry, bringing cinematic quality to every project I undertake.
+          </p>
+        </div>
+        
+        <div class="relative animate-scale-in animate-delayed">
+          <img 
+            src="https://images.pexels.com/photos/1264210/pexels-photo-1264210.jpeg?auto=compress&cs=tinysrgb&w=600" 
+            alt="Behind the scenes"
+            class="w-full h-80 object-cover rounded-lg shadow-lg">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section class="section-padding bg-dark-50">
+  <div class="container-max">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-dark-900">
+        My <span class="text-gradient">Expertise</span>
+      </h2>
+      <p class="text-lg text-dark-600 max-w-2xl mx-auto">
+        Through years of experience and continuous learning, I've developed expertise across multiple areas of visual storytelling.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div *ngFor="let skill of skills" 
+           class="animate-slide-up">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-dark-900 font-medium">{{ skill.name }}</span>
+          <span class="text-primary-600 font-bold">{{ skill.level }}%</span>
+        </div>
+        <div class="w-full bg-dark-200 rounded-full h-2">
+          <div 
+            class="bg-gradient-to-r from-primary-600 to-primary-800 h-2 rounded-full transition-all duration-1000 ease-out skill-bar"
+            [style.width.%]="skill.level">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Philosophy Section -->
+<section class="section-padding bg-white">
+  <div class="container-max">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-dark-900">
+        My <span class="text-gradient">Philosophy</span>
+      </h2>
+      <blockquote class="text-2xl italic text-dark-600 mb-8 leading-relaxed">
+        "Every moment is unique, every story is different, and every client deserves a personalized approach that captures their individual essence."
+      </blockquote>
+      <p class="text-lg text-dark-600 mb-8 leading-relaxed">
+        I believe that great photography and videography go beyond technical excellence. It's about understanding people, capturing emotions, and telling stories that resonate. My approach is collaborative, ensuring that every project reflects the unique vision and personality of my clients.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-dark-900">Vision</h3>
+          <p class="text-dark-600">Seeing beyond the obvious to capture the extraordinary in every moment.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-dark-900">Passion</h3>
+          <p class="text-dark-600">Bringing genuine enthusiasm and love for the craft to every project.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-dark-900">Excellence</h3>
+          <p class="text-dark-600">Commitment to delivering the highest quality in every aspect of my work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Achievements Section -->
+<section class="section-padding bg-dark-900 text-white">
+  <div class="container-max">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+        Recognition & <span class="text-primary-400">Achievements</span>
+      </h2>
+      <p class="text-lg opacity-90 max-w-2xl mx-auto">
+        I'm honored to have received recognition for my work from various industry organizations.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div *ngFor="let achievement of achievements" 
+           class="bg-dark-800 p-6 rounded-lg text-center animate-scale-in">
+        <div class="text-4xl font-bold text-primary-400 mb-2">{{ achievement.year }}</div>
+        <h3 class="text-xl font-bold mb-2">{{ achievement.title }}</h3>
+        <p class="text-dark-300">{{ achievement.organization }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-padding bg-primary-600 text-white">
+  <div class="container-max">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+        Let's Create Something Amazing Together
+      </h2>
+      <p class="text-xl mb-8 opacity-90">
+        Ready to turn your vision into reality? I'd love to hear about your project and discuss how we can bring it to life.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a routerLink="/contact" class="btn-dark">
+          Start Your Project
+        </a>
+        <a routerLink="/portfolio" class="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-primary-600">
+          View My Work
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
