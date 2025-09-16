@@ -27,6 +27,7 @@
 /* Achievement cards hover effect */
 .achievement-card {
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .achievement-card:hover {
