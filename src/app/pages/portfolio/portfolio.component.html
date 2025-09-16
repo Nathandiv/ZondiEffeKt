@@ -1,1 +1,161 @@
-<p>portfolio works!</p>
+<!-- Hero Section -->
+<section class="pt-12 sm:pt-16 section-padding bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 text-white">
+  <div class="container-max">
+    <div class="text-center">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-slide-up">
+        My <span class="text-gradient">Portfolio</span>
+      </h1>
+      <p class="text-xl mb-8 max-w-2xl sm:max-w-3xl mx-auto opacity-90 animate-slide-up animate-delayed">
+        Explore a curated collection of my photography and videography work, showcasing moments captured with passion and precision.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Filter Navigation -->
+<section class="py-8 sm:py-12 bg-white border-b border-dark-200">
+  <div class="container-max">
+    <div class="flex flex-wrap justify-center gap-2 sm:gap-4">
+      <button 
+        (click)="setFilter('all')"
+        [class.active]="activeFilter === 'all'"
+        class="filter-btn">
+        All Work
+      </button>
+      <button 
+        (click)="setFilter('photography')"
+        [class.active]="activeFilter === 'photography'"
+        class="filter-btn">
+        Photography
+      </button>
+      <button 
+        (click)="setFilter('videography')"
+        [class.active]="activeFilter === 'videography'"
+        class="filter-btn">
+        Videography
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Grid -->
+<section class="section-padding bg-dark-50">
+  <div class="container-max">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+      <div *ngFor="let item of filteredItems; let i = index" 
+           class="portfolio-item group relative overflow-hidden rounded-xl shadow-lg animate-scale-in"
+           [class.animate-delayed]="i % 2 === 1"
+           [class.animate-delayed-2]="i % 3 === 2">
+        
+        <!-- Photography Container -->
+        <div class="video-container" *ngIf="item.category === 'photography'">
+          <img 
+            [src]="item.image" 
+            [alt]="item.title"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <span class="inline-block px-2 sm:px-3 py-1 bg-primary-600 text-xs font-medium rounded-full mb-2">
+                {{ item.type }}
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold mb-2">{{ item.title }}</h3>
+              <p class="text-sm opacity-90">{{ item.description }}</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Videography Container -->
+        <div class="video-container" *ngIf="item.category === 'videography'">
+          <iframe 
+            [src]="item.safeVideoUrl" 
+            class="w-full h-full"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+          <div class="absolute top-3 sm:top-4 right-3 sm:right-4 flex space-x-1 sm:space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            <button class="w-8 sm:w-10 h-8 sm:h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors">
+              <svg class="w-4 sm:w-5 h-4 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+            </button>
+            <button class="w-8 sm:w-10 h-8 sm:h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors">
+              <svg class="w-4 sm:w-5 h-4 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Action Buttons (for photography only) -->
+        <div *ngIf="item.category === 'photography'" class="absolute top-3 sm:top-4 right-3 sm:right-4 flex space-x-1 sm:space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <button class="w-8 sm:w-10 h-8 sm:h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors">
+            <svg class="w-4 sm:w-5 h-4 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+            </svg>
+          </button>
+          <button class="w-8 sm:w-10 h-8 sm:h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-primary-600 transition-colors">
+            <svg class="w-4 sm:w-5 h-4 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Load More Button -->
+    <div class="text-center mt-8 sm:mt-12">
+      <button class="btn-primary">
+        Load More Projects
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Stats -->
+<section class="section-padding bg-white">
+  <div class="container-max">
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 text-center">
+      <div class="stats-item animate-fade-in">
+        <div class="text-4xl font-bold text-primary-600 mb-2">150+</div>
+        <div class="text-dark-600">Photography Projects</div>
+      </div>
+      <div class="stats-item animate-fade-in animate-delayed">
+        <div class="text-4xl font-bold text-primary-600 mb-2">75+</div>
+        <div class="text-dark-600">Video Productions</div>
+      </div>
+      <div class="stats-item animate-fade-in animate-delayed-2">
+        <div class="text-4xl font-bold text-primary-600 mb-2">500+</div>
+        <div class="text-dark-600">Happy Clients</div>
+      </div>
+      <div class="stats-item animate-fade-in animate-delayed-3">
+        <div class="text-4xl font-bold text-primary-600 mb-2">5+</div>
+        <div class="text-dark-600">Years Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-padding bg-primary-600 text-white">
+  <div class="container-max">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+        Ready to Create Your Story?
+      </h2>
+      <p class="text-xl mb-6 sm:mb-8 opacity-90">
+        Let's work together to capture your special moments and create something beautiful that you'll treasure forever.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a routerLink="/contact" class="btn-dark">
+          Start Your Project
+        </a>
+        <a routerLink="/services" class="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-primary-600">
+          View Services
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
