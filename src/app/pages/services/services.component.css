@@ -1,0 +1,237 @@
+/* Service cards */
+.service-card {
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  border-color: #dc2626;
+}
+
+@media (min-width: 640px) {
+  .service-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (hover: none) {
+  .service-card {
+    transform: none;
+  }
+  .service-card:active {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: #dc2626;
+  }
+}
+
+/* Package cards */
+.package-card {
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 1rem;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.package-card.border-primary-600 {
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
+}
+
+.package-card.border-primary-600:hover {
+  box-shadow: 0 20px 40px rgba(220, 38, 38, 0.3);
+}
+
+@media (min-width: 640px) {
+  .package-card {
+    padding: 2rem;
+  }
+}
+
+@media (hover: none) {
+  .package-card {
+    transform: none;
+  }
+  .package-card:active {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  }
+  .package-card.border-primary-600:active {
+    box-shadow: 0 10px 20px rgba(220, 38, 38, 0.15);
+  }
+}
+
+/* Popular badge */
+.popular-badge {
+  background: linear-gradient(45deg, #dc2626, #b91c1c);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 640px) {
+  .popular-badge {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    top: -2px; /* Adjust position to prevent overlap */
+    left: auto;
+    right: 1rem;
+    transform: none;
+  }
+}
+
+/* Process steps */
+.process-step {
+  position: relative;
+}
+
+.process-step::after {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  left: 60%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(to right, #dc2626, #b91c1c);
+  opacity: 0.3;
+}
+
+.process-step:last-child::after {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .process-step::after {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .process-step::after {
+    left: 50%;
+    width: 100%;
+  }
+}
+
+/* Service icons */
+.service-icon {
+  display: inline-block;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 640px) {
+  .service-icon {
+    font-size: 2rem;
+  }
+}
+
+/* Feature lists */
+.feature-list {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 0;
+}
+
+.feature-list li svg {
+  flex-shrink: 0;
+  margin-right: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .feature-list li {
+    margin-bottom: 0.25rem;
+    padding: 0.125rem 0;
+  }
+  .feature-list li svg {
+    margin-right: 0.5rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .feature-list li {
+    margin-bottom: 0.375rem;
+    padding: 0.1875rem 0;
+  }
+  .feature-list li svg {
+    margin-right: 0.625rem;
+  }
+}
+
+/* Pricing display */
+.price-display {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #dc2626;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 640px) {
+  .price-display {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .price-display {
+    font-size: 1.375rem;
+  }
+}
+
+/* Service card animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-card.animate-slide-up {
+  animation: slideInUp 0.6s ease-out;
+}
+
+/* Package highlights */
+.package-highlight {
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
+  border: 2px solid #dc2626;
+}
+
+.package-highlight .popular-badge {
+  background: #dc2626;
+}
+
+/* Button variations */
+.btn-package {
+  @apply w-full py-3 px-6 rounded-lg font-medium transition-all duration-300;
+}
+
+@media (max-width: 640px) {
+  .btn-package {
+    @apply py-2 px-4;
+  }
+}
+
+.btn-package-primary {
+  @apply bg-primary-600 text-white hover:bg-primary-700;
+}
+
+.btn-package-secondary {
+  @apply bg-transparent border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white;
+}
