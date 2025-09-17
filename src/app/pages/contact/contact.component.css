@@ -1,0 +1,146 @@
+/* Form styling */
+.form-input {
+  @apply w-full px-4 py-3 border border-dark-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-primary-600 transition-colors;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.form-label {
+  @apply block text-sm font-medium text-dark-700 mb-2;
+}
+
+/* Form animations */
+.form-group {
+  position: relative;
+}
+
+.form-group input:focus + .form-label,
+.form-group textarea:focus + .form-label {
+  color: #dc2626;
+}
+
+/* Contact info cards */
+.contact-info-card {
+  @apply flex items-start space-x-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow;
+}
+
+@media (max-width: 639px) {
+  .contact-info-card {
+    @apply flex-col text-center;
+  }
+}
+
+.contact-icon {
+  @apply w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0;
+}
+
+@media (max-width: 639px) {
+  .contact-icon {
+    @apply sm:mx-auto sm:mb-4;
+  }
+}
+
+.contact-icon svg {
+  @apply w-6 h-6 text-primary-600;
+}
+
+/* FAQ accordion */
+.faq-item {
+  @apply bg-white p-6 rounded-xl shadow-sm border border-dark-200 hover:shadow-md transition-shadow;
+}
+
+.faq-item h3 {
+  @apply font-bold text-dark-900 mb-2;
+}
+
+.faq-item p {
+  @apply text-dark-600;
+}
+
+/* Social media icons */
+.social-icon {
+  @apply w-12 h-12 bg-dark-100 rounded-full flex items-center justify-center hover:bg-primary-600 hover:text-white transition-colors;
+}
+
+.social-icon svg {
+  @apply w-5 h-5;
+}
+
+/* Form validation */
+.form-input.error {
+  @apply border-red-500 focus:border-red-500 focus:ring-red-500;
+}
+
+.error-message {
+  @apply text-red-500 text-sm mt-1;
+}
+
+/* Success message */
+.success-message {
+  @apply bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg;
+}
+
+/* Contact form hover effects */
+.form-input:hover {
+  border-color: #9ca3af;
+}
+
+.form-input:focus:hover {
+  border-color: #dc2626;
+}
+
+/* Contact section backgrounds */
+.contact-hero {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+}
+
+@media (max-width: 639px) {
+  .contact-hero {
+    min-height: 200px;
+  }
+}
+
+.contact-form-section {
+  background: linear-gradient(to bottom, #ffffff 0%, #f9fafb 100%);
+}
+
+@media (max-width: 639px) {
+  .contact-form-section {
+    min-height: 600px;
+  }
+}
+
+/* Form submission states */
+.form-submitting {
+  @apply opacity-75 pointer-events-none;
+}
+
+.form-submitting .btn-primary {
+  @apply bg-dark-400 cursor-not-allowed;
+}
+
+/* Form field focus indicators */
+.form-input:focus::placeholder {
+  opacity: 0.5;
+}
+
+/* Animation delays for contact info */
+.contact-info-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.contact-info-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.contact-info-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.contact-info-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
