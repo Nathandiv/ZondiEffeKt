@@ -1,4 +1,213 @@
-<!-- <app-header></app-header> -->
+<!-- Hero Section -->
+<section class="pt-20 section-padding bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 text-white" aria-label="Hero Section">
+  <div class="container-max">
+    <div class="text-center">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-slide-up">
+        Client <span class="text-gradient">Testimonials</span>
+      </h1>
+      <p class="text-xl mb-8 max-w-3xl mx-auto opacity-90 animate-slide-up animate-delayed">
+        Hear what our clients have to say about their experience working with VisionFrame and the results we've delivered.
+      </p>
+    </div>
+  </div>
+</section>
 
-<p>testimonials works!</p>
-<!-- <app-footer></app-footer> -->
+<!-- Featured Testimonial Slider -->
+<section class="section-padding bg-white" aria-label="Featured Testimonial Section">
+  <div class="container-max">
+    <div class="max-w-4xl mx-auto">
+      <div class="relative bg-dark-50 rounded-2xl p-8 sm:p-8 md:p-12">
+        <div class="text-center">
+          <div class="text-primary-600 text-6xl mb-6">"</div>
+          <blockquote class="text-xl md:text-2xl italic mb-8 leading-relaxed text-dark-800">
+            {{ testimonials[currentTestimonial].content }}
+          </blockquote>
+          
+          <div class="flex items-center justify-center space-x-4 mb-6">
+            <img 
+              [src]="testimonials[currentTestimonial].image" 
+              [alt]="testimonials[currentTestimonial].name"
+              class="w-16 h-16 rounded-full object-cover">
+            <div class="text-left">
+              <div class="font-bold text-lg text-dark-900">{{ testimonials[currentTestimonial].name }}</div>
+              <div class="text-primary-600">{{ testimonials[currentTestimonial].role }}</div>
+              <div class="text-sm text-dark-600">{{ testimonials[currentTestimonial].service }}</div>
+            </div>
+          </div>
+          
+          <div class="flex justify-center space-x-1 mb-6">
+            <svg *ngFor="let star of [1,2,3,4,5]" 
+                 class="w-5 h-5 text-yellow-500" 
+                 fill="currentColor" 
+                 viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+          </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="flex justify-between items-center">
+          <button 
+            (click)="previousTestimonial()"
+            class="nav-button mx-2"
+            aria-label="Previous testimonial">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+          
+          <div class="flex space-x-2">
+            <button *ngFor="let testimonial of testimonials; let i = index"
+                    (click)="goToTestimonial(i)"
+                    class="pagination-dot"
+                    [class.active]="i === currentTestimonial">
+            </button>
+          </div>
+          
+          <button 
+            (click)="nextTestimonial()"
+            class="nav-button mx-2"
+            aria-label="Next testimonial">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- All Testimonials Grid -->
+<section class="section-padding bg-dark-50" aria-label="All Testimonials Section">
+  <div class="container-max">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-dark-900">
+        What Our Clients <span class="text-gradient">Say</span>
+      </h2>
+      <p class="text-lg text-dark-600 max-w-2xl mx-auto">
+        Read more testimonials from our satisfied clients across different services and projects.
+      </p>
+    </div>
+    
+    <div class="testimonial-grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div *ngFor="let testimonial of testimonials; let i = index" 
+           class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 card-hover"
+           [class.animate-slide-up]="true"
+           [class.animate-delayed]="i % 2 === 1"
+           [class.animate-delayed-2]="i % 3 === 2">
+        
+        <div class="flex items-center mb-4">
+          <img 
+            [src]="testimonial.image" 
+            [alt]="testimonial.name"
+            class="w-12 h-12 rounded-full object-cover mr-4">
+          <div>
+            <div class="font-bold text-dark-900">{{ testimonial.name }}</div>
+            <div class="text-sm text-dark-600">{{ testimonial.role }}</div>
+          </div>
+        </div>
+        
+        <div class="flex space-x-1 mb-4">
+          <svg *ngFor="let star of [1,2,3,4,5]" 
+               class="w-4 h-4 text-yellow-500" 
+               fill="currentColor" 
+               viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+          </svg>
+        </div>
+        
+        <p class="text-dark-600 mb-4 italic">{{ testimonial.content }}</p>
+        
+        <div class="text-sm text-primary-600 font-medium">
+          {{ testimonial.service }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Indicators -->
+<section class="section-padding bg-white" aria-label="Trust Indicators Section">
+  <div class="container-max">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-dark-900">
+        Trusted by <span class="text-gradient">Hundreds</span>
+      </h2>
+    </div>
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div class="animate-fade-in">
+        <div class="text-4xl font-bold text-primary-600 mb-2">500+</div>
+        <div class="text-dark-600">Happy Clients</div>
+      </div>
+      <div class="animate-fade-in animate-delayed">
+        <div class="text-4xl font-bold text-primary-600 mb-2">98%</div>
+        <div class="text-dark-600">Satisfaction Rate</div>
+      </div>
+      <div class="animate-fade-in animate-delayed-2">
+        <div class="text-4xl font-bold text-primary-600 mb-2">1000+</div>
+        <div class="text-dark-600">Projects Completed</div>
+      </div>
+      <div class="animate-fade-in animate-delayed-3">
+        <div class="text-4xl font-bold text-primary-600 mb-2">5+</div>
+        <div class="text-dark-600">Years Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Testimonial Section -->
+<section class="section-padding bg-dark-900 text-white" aria-label="Video Testimonials Section">
+  <div class="container-max">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+        Video <span class="text-primary-400">Testimonials</span>
+      </h2>
+      <p class="text-xl opacity-90 max-w-2xl mx-auto">
+        Watch our clients share their experiences working with VisionFrame.
+      </p>
+    </div>
+    
+    <div class="max-w-4xl mx-auto">
+      <div class="relative bg-dark-800 rounded-2xl p-8 text-center">
+        <div class="mb-6">
+          <div class="video-container bg-dark-700 rounded-xl h-64 sm:h-80">
+            <iframe 
+              [src]="safeVideoUrl" 
+              class="w-full h-full rounded-xl"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <p class="text-dark-300">
+            Watch our clients share their experiences working with ZondiEffekts and see the results we've delivered.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-padding bg-primary-600 text-white" aria-label="Call to Action Section">
+  <div class="container-max">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+        Ready to Join Our Happy Clients?
+      </h2>
+      <p class="text-xl mb-8 opacity-90">
+        Experience the VisionFrame difference for yourself. Let's create something amazing together.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center">
+        <a href="#contact" class="btn-dark">
+          Start Your Project
+        </a>
+        <a href="#portfolio" class="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-primary-600">
+          View Our Work
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
