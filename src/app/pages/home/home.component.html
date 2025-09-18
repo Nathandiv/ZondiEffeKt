@@ -41,7 +41,7 @@
       class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up animate-delayed-2"
     >
       <a routerLink="/portfolio" class="btn-primary"> View Portfolio </a>
-      <button (click)="openQuoteModal()" class="btn-secondary">
+      <button (click)="openQuoteModal()" class="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-primary-600">
         Get Quote
       </button>
     </div>
@@ -63,7 +63,7 @@
 </section>
 
 <!-- Introduction Section -->
-<section class="section-padding">
+<section class="section-padding" style=" margin-top: -50px">
   <div class="container-max">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-white">
@@ -224,7 +224,7 @@
 </section>
 
 <!-- Client Testimonial Section -->
-<section class="section-padding text-white">
+<section class="section-padding text-white " style = "margin-top: -80px;" >
   <div class="container-max">
     <div class="max-w-4xl mx-auto text-center">
       <div class="text-primary-400 text-6xl mb-6">"</div>
@@ -249,7 +249,7 @@
 </section>
 
 <!-- Call to Action Section -->
-<section class="section-padding text-white" style="background-color: #db111158;">
+<section class="section-padding text-white bg-gradient-to-r from-primary-600 to-primary-800 " >
   <div class="container-max">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-3xl sm:text-4xl font-bold mb-6">
@@ -260,12 +260,12 @@
         photography and videography services.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <button (click)="openBookingModal()" class="btn-dark">
+        <button (click)="openBookingModal()" class="btn-dark bg-black border-white text-white hover:bg-white hover:text-primary-600 cursor-pointer">
           Get Started Today
         </button>
         <a
           routerLink="/portfolio"
-          class="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-primary-600"
+          class="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-primary-600 cursor-pointer"
         >
           View Our Work
         </a>
