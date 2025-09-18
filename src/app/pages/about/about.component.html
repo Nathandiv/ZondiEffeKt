@@ -26,7 +26,7 @@
           <a href="#journey" class="btn-primary cursor-pointer">
             My Story
           </a>
-          <a routerLink="/contact" class="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-dark-900 cursor-pointer">
+          <a routerLink="/contact" class="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-primary-600 cursor-pointer">
             Let's Connect
           </a>
         </div>
@@ -161,17 +161,17 @@
 <section class="section-padding  text-white">
   <div class="container-max">
     <div class="text-center mb-16">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-6">
-        Recognition & <span class="text-primary-400">Achievements</span>
-      </h2>
-      <p class="text-lg opacity-90 max-w-2xl mx-auto">
+      <h1 class="text-4xl sm:text-4xl font-bold mb-6">
+        Recognition & <span class="text-gradient">Achievements</span>
+      </h1>
+      <p class="text-xl text-white opacity-90 max-w-2xl mx-auto">
         I'm honored to have received recognition for my work from various industry organizations.
       </p>
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div *ngFor="let achievement of achievements" 
-           class="bg-dark-800 p-6 rounded-lg text-center animate-scale-in">
+           class="bg-gradient-to-r from-primary-600 to-primary-800  text-whit p-6 rounded-lg text-center animate-scale-in">
         <div class="text-4xl font-bold text-primary-400 mb-2">{{ achievement.year }}</div>
         <h3 class="text-xl font-bold mb-2">{{ achievement.title }}</h3>
         <p class="text-dark-300">{{ achievement.organization }}</p>
