@@ -1,5 +1,5 @@
 <!-- Hero Section -->
-<section class="pt-12 sm:pt-16 section-padding  text-white">
+<section class="pt-12 sm:pt-16 section-padding  text-white mt-5">
   <div class="container-max">
     <div class="text-center">
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-slide-up">
@@ -13,13 +13,13 @@
 </section>
 
 <!-- Filter Navigation -->
-<section class="py-8 sm:py-12 ">
+<section class="py-8 sm:py-12 " style="margin-top: -100px;">
   <div class="container-max">
     <div class="flex flex-wrap justify-center gap-2 sm:gap-4">
       <button 
         (click)="setFilter('all')"
         [class.active]="activeFilter === 'all'"
-        class="filter-btn">
+        class="filter-btn text-white">
         All Work
       </button>
       <button 
@@ -39,7 +39,7 @@
 </section>
 
 <!-- Portfolio Grid -->
-<section class="section-padding ">
+<section class="section-padding " style="margin-top: -65px;">
   <div class="container-max">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
       <div *ngFor="let item of filteredItems; let i = index" 
@@ -115,24 +115,24 @@
 </section>
 
 <!-- Portfolio Stats -->
-<section class="section-padding ">
+<section class="section-padding " style="margin-top: -80px;">
   <div class="container-max">
     <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 text-center">
       <div class="stats-item animate-fade-in">
         <div class="text-4xl font-bold text-primary-600 mb-2">150+</div>
-        <div class="text-dark-600">Photography Projects</div>
+        <div class="text-white">Photography Projects</div>
       </div>
       <div class="stats-item animate-fade-in animate-delayed">
-        <div class="text-4xl font-bold text-primary-600 mb-2">75+</div>
-        <div class="text-dark-600">Video Productions</div>
+        <div class="text-4xl font-bold text-primary-600 mb-2">25+</div>
+        <div class="text-white">Video Productions</div>
       </div>
       <div class="stats-item animate-fade-in animate-delayed-2">
-        <div class="text-4xl font-bold text-primary-600 mb-2">500+</div>
-        <div class="text-dark-600">Happy Clients</div>
+        <div class="text-4xl font-bold text-primary-600 mb-2">100+</div>
+        <div class="text-white">Happy Clients</div>
       </div>
       <div class="stats-item animate-fade-in animate-delayed-3">
         <div class="text-4xl font-bold text-primary-600 mb-2">5+</div>
-        <div class="text-dark-600">Years Experience</div>
+        <div class="text-white">Years Experience</div>
       </div>
     </div>
   </div>

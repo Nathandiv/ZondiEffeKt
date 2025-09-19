@@ -2,7 +2,7 @@
 .filter-btn {
   @apply px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-all duration-300 border-2;
   border-color: #e5e7eb;
-  color: #6b7280;
+  color:white;
 }
 
 .filter-btn:hover {
