@@ -1,6 +1,6 @@
 <!-- Hero Section -->
-<section class="pt-20 section-padding  text-white" aria-label="Hero Section">
-  <div class="container-max">
+<section class="pt-20 section-padding  text-white" aria-label="Hero Section" >
+  <div class="container-max" style="margin-top: -40px;">
     <div class="text-center">
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-slide-up">
         Our <span class="text-gradient">Services</span>
@@ -13,20 +13,20 @@
 </section>
 
 <!-- Photography Services -->
-<section class="section-padding " aria-label="Photography Services Section">
+<section class="section-padding " aria-label="Photography Services Section" style="margin-top: -120px;">
   <div class="container-max">
     <div class="text-center mb-16">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-dark-900">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-white">
         Photography <span class="text-gradient">Services</span>
       </h2>
-      <p class="text-lg text-dark-600 max-w-2xl mx-auto">
+      <p class="text-lg text-white max-w-2xl mx-auto">
         From intimate portraits to grand celebrations, we capture every moment with artistic vision and professional expertise.
       </p>
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       <div *ngFor="let service of photographyServices; let i = index" 
-           class="service-card bg-white border border-dark-200 rounded-xl p-6 hover:shadow-2xl transition-all duration-300"
+           class="service-card border-2 border-red-600 text-white p-6 rounded-lg text-center animate-scale-in"
            [class.animate-slide-up]="true"
            [class.animate-delayed]="i % 2 === 1"
            [class.animate-delayed-2]="i % 4 === 2"
@@ -34,12 +34,12 @@
         
         <div class="text-center mb-6">
           <div class="text-4xl mb-4">{{ service.icon }}</div>
-          <h3 class="text-xl font-bold mb-2 text-dark-900">{{ service.title }}</h3>
-          <p class="text-dark-600 text-sm">{{ service.description }}</p>
+          <h3 class="text-xl font-bold mb-2 text-white">{{ service.title }}</h3>
+          <p class="text-white text-sm">{{ service.description }}</p>
         </div>
         
         <ul class="space-y-2 mb-6">
-          <li *ngFor="let feature of service.features" class="flex items-center text-sm text-dark-600">
+          <li *ngFor="let feature of service.features" class="flex items-center text-sm text-white">
             <svg class="w-4 h-4 text-primary-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
             </svg>
@@ -62,10 +62,10 @@
 <section class="section-padding " aria-label="Videography Services Section">
   <div class="container-max">
     <div class="text-center mb-16">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-dark-900">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-white">
         Videography <span class="text-gradient">Services</span>
       </h2>
-      <p class="text-lg text-dark-600 max-w-2xl mx-auto">
+      <p class="text-lg text-white max-w-2xl mx-auto">
         Professional video production that brings your stories to life with cinematic quality and creative excellence.
       </p>
     </div>
