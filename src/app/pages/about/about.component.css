@@ -67,3 +67,7 @@ blockquote::before {
   background: linear-gradient(45deg, transparent 30%, rgba(220, 38, 38, 0.1) 100%);
   pointer-events: none;
 }
+
+.border-gradient {
+  border-image: linear-gradient(to right, #5070b7, #1e40af) 1;
+}

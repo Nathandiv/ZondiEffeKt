@@ -13,7 +13,7 @@
       class="w-full h-full object-cover opacity-30">
   </div>
   
-  <div class="container-max">
+  <div class="container-max" style="margin-top: -140px;">
     <div class="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto">
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
@@ -170,9 +170,9 @@
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div *ngFor="let achievement of achievements" 
-           class="bg-gradient-to-r from-primary-600 to-primary-800  text-whit p-6 rounded-lg text-center animate-scale-in">
-        <div class="text-4xl font-bold text-primary-400 mb-2">{{ achievement.year }}</div>
+   <div *ngFor="let achievement of achievements" 
+     class="border-2 border-gradient-to-r from-primary-600 to-primary-800 text-white p-6 rounded-lg text-center animate-scale-in">
+        <div class="text-4xl font-bold text-gradient mb-2">{{ achievement.year }}</div>
         <h3 class="text-xl font-bold mb-2">{{ achievement.title }}</h3>
         <p class="text-dark-300">{{ achievement.organization }}</p>
       </div>
