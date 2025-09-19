@@ -13,13 +13,13 @@
 </section>
 
 <!-- Featured Testimonial Slider -->
-<section class="section-padding " aria-label="Featured Testimonial Section">
+<section class="section-padding " aria-label="Featured Testimonial Section" style="margin-top: -140px;">
   <div class="container-max">
     <div class="max-w-4xl mx-auto">
       <div class="relative  rounded-2xl p-8 sm:p-8 md:p-12">
         <div class="text-center">
           <div class="text-primary-600 text-6xl mb-6">"</div>
-          <blockquote class="text-xl md:text-2xl italic mb-8 leading-relaxed text-dark-800">
+          <blockquote class="text-xl md:text-2xl italic mb-8 leading-relaxed text-white" style="margin-top: -50px;">
             {{ testimonials[currentTestimonial].content }}
           </blockquote>
           
@@ -29,9 +29,9 @@
               [alt]="testimonials[currentTestimonial].name"
               class="w-16 h-16 rounded-full object-cover">
             <div class="text-left">
-              <div class="font-bold text-lg text-dark-900">{{ testimonials[currentTestimonial].name }}</div>
+              <div class="font-bold text-lg text-white">{{ testimonials[currentTestimonial].name }}</div>
               <div class="text-primary-600">{{ testimonials[currentTestimonial].role }}</div>
-              <div class="text-sm text-dark-600">{{ testimonials[currentTestimonial].service }}</div>
+              <div class="text-sm text-white">{{ testimonials[currentTestimonial].service }}</div>
             </div>
           </div>
           
@@ -79,20 +79,20 @@
 </section>
 
 <!-- All Testimonials Grid -->
-<section class="section-padding " aria-label="All Testimonials Section">
+<section class="section-padding " aria-label="All Testimonials Section" style="margin-top: -140px;">
   <div class="container-max">
     <div class="text-center mb-16">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-dark-900">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-white">
         What Our Clients <span class="text-gradient">Say</span>
       </h2>
-      <p class="text-lg text-dark-600 max-w-2xl mx-auto">
+      <p class="text-lg text-white max-w-2xl mx-auto">
         Read more testimonials from our satisfied clients across different services and projects.
       </p>
     </div>
     
     <div class="testimonial-grid md:grid-cols-2 lg:grid-cols-3 gap-4">
       <div *ngFor="let testimonial of testimonials; let i = index" 
-           class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 card-hover"
+           class="p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 card-hover border-2 border-red-600"
            [class.animate-slide-up]="true"
            [class.animate-delayed]="i % 2 === 1"
            [class.animate-delayed-2]="i % 3 === 2">
@@ -103,8 +103,8 @@
             [alt]="testimonial.name"
             class="w-12 h-12 rounded-full object-cover mr-4">
           <div>
-            <div class="font-bold text-dark-900">{{ testimonial.name }}</div>
-            <div class="text-sm text-dark-600">{{ testimonial.role }}</div>
+            <div class="font-bold text-white">{{ testimonial.name }}</div>
+            <div class="text-sm text-white">{{ testimonial.role }}</div>
           </div>
         </div>
         
@@ -117,7 +117,7 @@
           </svg>
         </div>
         
-        <p class="text-dark-600 mb-4 italic">{{ testimonial.content }}</p>
+        <p class="text-white mb-4 italic">{{ testimonial.content }}</p>
         
         <div class="text-sm text-primary-600 font-medium">
           {{ testimonial.service }}
