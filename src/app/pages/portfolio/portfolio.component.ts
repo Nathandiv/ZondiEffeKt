@@ -14,54 +14,54 @@ export class PortfolioComponent{
   portfolioItems = [
     {
       id: 1,
-      title: 'Elegant Wedding Ceremony',
+      title: 'Fat Cat Photoshoot',
       category: 'photography',
-      type: 'Wedding',
-      image: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Capturing the magic of a beautiful wedding day'
+      type: 'Photoshoot',
+      image: 'https://i.pinimg.com/736x/38/22/4c/38224c2064a437ff78133e6a3ff7c6fe.jpg',
+      description: 'Capturing the magic'
     },
     {
       id: 2,
       title: 'Corporate Brand Video',
       category: 'videography',
       type: 'Corporate',
-      image: 'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=600',
+      // image: 'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=600',
       description: 'Professional corporate storytelling video',
       videoUrl: 'https://www.youtube.com/embed/5o6OS7OtelY?enablejsapi=1&controls=1&modestbranding=1&rel=0',
       safeVideoUrl: null as SafeResourceUrl | null
     },
     {
       id: 3,
-      title: 'Portrait Session',
+      title: 'Ablum Shoot',
       category: 'photography',
-      type: 'Portrait',
-      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Professional portrait photography session'
+      type: 'Photoshoot',
+      image: 'https://i.pinimg.com/736x/ad/41/36/ad41363da5b282dfaab6575e40d1102a.jpg',
+      description: 'People Forget To Be People'
     },
     {
       id: 4,
       title: 'Event Highlights',
       category: 'videography',
       type: 'Event',
-      image: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=600',
+      // image: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=600',
       description: 'Dynamic event coverage and highlights',
       videoUrl: 'https://www.youtube.com/embed/H5ulCs6-Ihs?enablejsapi=1&controls=1&modestbranding=1&rel=0',
       safeVideoUrl: null as SafeResourceUrl | null
     },
     {
       id: 5,
-      title: 'Family Moments',
+      title: 'Hype Magazine',
       category: 'photography',
-      type: 'Family',
-      image: 'https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Capturing precious family memories'
+      type: 'Photoshoot',
+      image: 'https://i.pinimg.com/736x/2c/a6/a3/2ca6a3fc4f32dccb6d36867762d9fc37.jpg',
+      description: 'All Doggs Go To Heaven'
     },
     {
       id: 6,
       title: 'Music Video Production',
       category: 'videography',
       type: 'Music',
-      image: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=600',
+      // image: 'https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=600',
       description: 'Creative music video production',
       videoUrl: 'https://www.youtube.com/embed/IiYNws-iK_I?enablejsapi=1&controls=1&modestbranding=1&rel=0',
       safeVideoUrl: null as SafeResourceUrl | null
