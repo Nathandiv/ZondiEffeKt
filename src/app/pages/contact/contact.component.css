@@ -25,7 +25,7 @@
 
 /* Contact info cards */
 .contact-info-card {
-  @apply flex items-start space-x-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow;
+  @apply flex items-start space-x-4 p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow border-2 border-red-600;
 }
 
 @media (max-width: 639px) {
