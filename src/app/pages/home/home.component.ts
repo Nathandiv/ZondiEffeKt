@@ -25,37 +25,35 @@ export class HomeComponent implements OnInit {
   featuredWorks: FeaturedWork[] = [
     {
       id: 1,
-      title: 'Music Video - Chart Topper',
+      title: 'Big Stepper ',
       category: 'Music Video',
       image: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Cinematic music video for platinum-selling artist',
+      description: 'The official music video for Big Stepper ',
       videoUrl: 'https://www.youtube.com/embed/5o6OS7OtelY?enablejsapi=1&controls=1&modestbranding=1&rel=0',
       isPlaying: false
     },
     {
       id: 2,
-      title: 'Artist Portrait Session',
+      title: 'Ablum Shoot',
       category: 'Photography',
-      image: 'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Album cover shoot for Grammy-nominated artist'
+      image: 'https://i.pinimg.com/736x/ad/41/36/ad41363da5b282dfaab6575e40d1102a.jpg',
+      description: 'People Forget To Be People'
     },
     {
       id: 3,
-      title: 'Brand Content Creation',
-      category: 'Content Creation',
+      title: 'Never Ride Remix',
+      category: 'Music Video',
       image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Social media content for major record label',
+      description: 'The official music video for NEVER RIDE REMIX',
       videoUrl: 'https://www.youtube.com/embed/H5ulCs6-Ihs?enablejsapi=1&controls=1&modestbranding=1&rel=0',
       isPlaying: false
     },
-    {
+   {
       id: 4,
-      title: 'Live Performance Video',
-      category: 'Music Video',
-      image: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Multi-camera concert videography',
-      videoUrl: 'https://www.youtube.com/embed/IiYNws-iK_I?enablejsapi=1&controls=1&modestbranding=1&rel=0',
-      isPlaying: false
+      title: 'Hype Magazine',
+      category: 'Photography',
+      image: 'https://i.pinimg.com/736x/2c/a6/a3/2ca6a3fc4f32dccb6d36867762d9fc37.jpg',
+      description: 'All Doggs Go To Heaven'
     }
   ];
 
