@@ -35,4 +35,12 @@ export class AboutComponent {
       organization: 'Creative Arts Society'
     }
   ];
+
+   scrollToSection(): void {
+    const element = document.getElementById('journey');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
 }
