@@ -42,19 +42,35 @@ footer {
   text-align: center;
 }
 
+.footer-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem; /* Space between text and link on desktop */
+}
+
+.developer-text {
+  display: none; /* Hidden by default on desktop */
+}
+
 .developer-link {
   display: inline-flex;
   align-items: center;
-  margin-top: 0.5rem; /* Adds space above the link on mobile */
 }
 
 @media (max-width: 640px) { /* Adjust breakpoint as needed for mobile */
-  .footer-info {
+  .footer-text {
     flex-direction: column;
     align-items: center;
   }
 
-  .developer-link {
-    margin-top: 0.5rem; /* Ensures the link stays below on mobile */
+  .developer-text {
+    display: inline; /* Show "Developed by" on mobile */
+  }
+
+  .footer-text > .developer-text + .developer-link {
+    display: inline-flex; /* Keep link inline with "Developed by" */
+     /* Small space between "Developed by" and link */
+    margin-top: 0; /* Remove vertical margin */
   }
 }
