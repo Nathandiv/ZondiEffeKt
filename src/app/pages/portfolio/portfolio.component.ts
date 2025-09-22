@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-portfolio',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.css'
 })

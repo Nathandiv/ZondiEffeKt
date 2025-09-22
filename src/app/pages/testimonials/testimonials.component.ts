@@ -1,10 +1,11 @@
 import { Component, HostListener } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-testimonials',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './testimonials.component.html',
   styleUrl: './testimonials.component.css'
 })
